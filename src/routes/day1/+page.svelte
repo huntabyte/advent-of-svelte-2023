@@ -66,10 +66,8 @@
 										<Button variant="destructive" onclick={() => list.updateTally(child.id, -1)}
 											>-1</Button
 										>
-										<Button
-											variant="default"
-											class="bg-green-500"
-											onclick={() => list.updateTally(child.id, 1)}>+1</Button
+										<Button variant="success" onclick={() => list.updateTally(child.id, 1)}
+											>+1</Button
 										>
 									</div>
 								</Table.Cell>

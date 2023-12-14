@@ -3,29 +3,35 @@ import { generateId } from '$lib/utils';
 import type { PersonData } from './types';
 
 export class NaughtyOrNice {
-	#personData = $state<PersonData>({});
+	personData = $state<PersonData>({});
 	#page = $state(0);
 	#persistedPersons: Persisted<PersonData>;
 	#persistedPage: Persisted<number>;
-	#personArr = $state(Object.entries(this.#personData).map(([k, v]) => ({ id: k, ...v })));
+	#personArr = $state(Object.entries(this.personData).map(([k, v]) => ({ id: k, ...v })));
 	#pagePersons = $derived(this.#personArr.slice(this.#page * 10, this.#page * 10 + 10));
 	#totalPages = $derived(Math.ceil(this.#personArr.length / 10));
 
 	constructor(initialValue: PersonData) {
 		this.#persistedPersons = new Persisted('naughtyNiceList', initialValue);
 		this.#persistedPage = new Persisted('naughtyNicePage', 0);
-		this.#personData = this.#persistedPersons.value;
+		this.personData = this.#persistedPersons.value;
 		this.#page = this.#persistedPage.value;
 
 		$effect(() => {
-			this.#persistedPersons.value = this.#personData;
+			this.#persistedPersons.value = this.personData;
 		});
 		$effect(() => {
 			this.#persistedPage.value = this.#page;
 		});
 
 		$effect(() => {
-			this.#personArr = Object.entries(this.#personData).map(([k, v]) => ({ id: k, ...v }));
+			this.#personArr = Object.entries(this.personData).map(([k, v]) => ({ id: k, ...v }));
+		});
+
+		$effect(() => {
+			if (this.#page >= this.#totalPages && this.#totalPages > 0) {
+				this.#page = this.#totalPages - 1;
+			}
 		});
 	}
 
@@ -49,15 +55,11 @@ export class NaughtyOrNice {
 
 	addPerson(name: string) {
 		const newPerson = { name, tally: 0, id: generateId() };
-		this.#personData[newPerson.id] = newPerson;
-	}
-
-	removePerson(name: string) {
-		delete this.#personData[name];
+		this.personData[newPerson.id] = newPerson;
 	}
 
 	updateTally(id: string, amount: number) {
-		this.#personData[id].tally += amount;
+		this.personData[id].tally += amount;
 	}
 
 	#sortByTallyType: 'asc' | 'desc' | undefined = undefined;

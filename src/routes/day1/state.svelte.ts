@@ -8,8 +8,6 @@ export class NaughtyOrNice {
 	#persistedPersons: Persisted<PersonData>;
 	#persistedPage: Persisted<number>;
 	#personArr = $state(Object.entries(this.personData).map(([k, v]) => ({ id: k, ...v })));
-	#naughty = $derived(this.#personArr.filter((p) => p.tally < 0));
-	#nice = $derived(this.#personArr.filter((p) => p.tally > 0));
 	#pagePersons = $derived(this.#personArr.slice(this.#page * 10, this.#page * 10 + 10));
 	#totalPages = $derived(Math.ceil(this.#personArr.length / 10));
 

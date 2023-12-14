@@ -4,8 +4,8 @@
 	import SiteHeader from '$lib/components/site-header.svelte';
 </script>
 
-<div class="relative flex min-h-screen flex-col" id="page">
-	<SiteHeader />
+<SiteHeader />
+<div class="relative flex min-h-[calc(100vh-57px)] flex-col" id="page">
 	<div class="flex-1 h-full self-stretch container">
 		{@render children()}
 	</div>

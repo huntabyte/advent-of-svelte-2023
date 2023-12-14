@@ -65,8 +65,10 @@ export function arrayToObject<T>(arr: T[]): { [id: string]: T } {
 	);
 }
 
+let idCounter = 0;
+
 export function generateId(): string {
-	return Math.random()
-		.toString(36)
-		.slice(2, Math.floor(Math.random() * 3) + 1);
+	const uniqueId = `${Date.now().toString(36)}_${idCounter.toString(36)}`;
+	idCounter++;
+	return uniqueId;
 }

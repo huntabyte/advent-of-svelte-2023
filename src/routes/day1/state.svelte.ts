@@ -55,7 +55,7 @@ export class NaughtyOrNice {
 
 	addPerson(name: string) {
 		const newPerson = { name, tally: 0, id: generateId() };
-		this.personData[newPerson.id] = newPerson;
+		this.personData = { ...this.personData, [newPerson.id]: newPerson };
 	}
 
 	updateTally(id: string, amount: number) {

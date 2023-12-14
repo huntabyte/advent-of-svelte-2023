@@ -25,7 +25,7 @@
 	}
 </script>
 
-<div class="py-20">
+<div class="py-20 h-full">
 	<div class="flex gap-4 items-start">
 		<Card.Root class="w-full">
 			<Card.Header>

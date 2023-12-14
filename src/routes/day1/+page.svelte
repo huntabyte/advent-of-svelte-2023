@@ -47,7 +47,7 @@
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
-						{#each list.persons as child}
+						{#each list.persons as child (child.id)}
 							{@const naughty = isNaughty(child.tally)}
 							<Table.Row>
 								<Table.Cell class="font-medium">
@@ -106,12 +106,17 @@
 				<Card.Description>Keep track of who has been naughty and nice</Card.Description>
 			</Card.Header>
 			<Card.Content>
-				<form onsubmit={(e) => e.preventDefault()}>
+				<form
+					onsubmit={(e) => {
+						e.preventDefault();
+						addChild();
+					}}
+				>
 					<div class="flex flex-col gap-2">
 						<Label for="name">Name</Label>
 						<Input id="name" bind:value={name} />
 					</div>
-					<Button class="mt-4" onclick={addChild}>Add</Button>
+					<Button class="mt-4" type="submit">Add</Button>
 				</form>
 			</Card.Content>
 		</Card.Root>

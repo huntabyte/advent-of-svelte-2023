@@ -17,6 +17,10 @@
 		{
 			day: 3,
 			title: 'Jingle Bell Balancer'
+		},
+		{
+			day: 4,
+			title: 'Heart Rate Monitor'
 		}
 	];
 </script>

@@ -46,7 +46,6 @@
 						<span class="sr-only">X (formerly known as Twitter)</span>
 					</div>
 				</a>
-				<!-- <ModeToggle /> -->
 			</nav>
 		</div>
 	</div>

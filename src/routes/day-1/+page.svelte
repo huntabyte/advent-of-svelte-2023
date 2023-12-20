@@ -36,12 +36,8 @@
 				<Table.Root>
 					<Table.Header>
 						<Table.Row>
-							<Table.Head>
-								<Button variant="ghost" onclick={list.toggleSortByName}>Name</Button>
-							</Table.Head>
-							<Table.Head>
-								<Button variant="ghost" onclick={list.toggleSortByTally}>Score</Button>
-							</Table.Head>
+							<Table.Head>Name</Table.Head>
+							<Table.Head>Score</Table.Head>
 							<Table.Head>Status</Table.Head>
 							<Table.Head />
 						</Table.Row>
@@ -51,10 +47,10 @@
 							{@const naughty = isNaughty(child.tally)}
 							<Table.Row>
 								<Table.Cell class="font-medium">
-									<span class="pl-4">{child.name}</span>
+									<span>{child.name}</span>
 								</Table.Cell>
 								<Table.Cell class={cn(naughty ? 'text-red-500' : 'text-green-500')}>
-									<span class="pl-4">{child.tally}</span>
+									<span>{child.tally}</span>
 								</Table.Cell>
 								<Table.Cell>
 									<Badge variant={naughty ? 'destructive' : 'success'}>
@@ -80,19 +76,39 @@
 						Page {list.page} of {list.totalPages}
 					</div>
 					<div class="flex items-center space-x-2">
-						<Button variant="outline" class="hidden h-8 w-8 p-0 lg:flex" onclick={list.firstPage}>
+						<Button
+							variant="outline"
+							class="hidden h-8 w-8 p-0 lg:flex"
+							onclick={list.firstPage}
+							disabled={list.page === 1}
+						>
 							<span class="sr-only">Go to first page</span>
 							<CaretDoubleLeft class="h-4 w-4" />
 						</Button>
-						<Button variant="outline" class="p-0 w-8 h-8" onclick={list.prevPage}>
+						<Button
+							variant="outline"
+							class="p-0 w-8 h-8"
+							onclick={list.prevPage}
+							disabled={list.page === 1}
+						>
 							<span class="sr-only">Go to previous page</span>
 							<CaretLeft class="h-4 w-4" />
 						</Button>
-						<Button variant="outline" class="p-0 w-8 h-8" onclick={list.nextPage}>
+						<Button
+							variant="outline"
+							class="p-0 w-8 h-8"
+							onclick={list.nextPage}
+							disabled={list.page === list.totalPages}
+						>
 							<span class="sr-only">Go to next page</span>
 							<CaretRight class="h-4 w-4" />
 						</Button>
-						<Button variant="outline" class="hidden h-8 w-8 p-0 lg:flex" onclick={list.lastPage}>
+						<Button
+							variant="outline"
+							class="hidden h-8 w-8 p-0 lg:flex"
+							onclick={list.lastPage}
+							disabled={list.page === list.totalPages}
+						>
 							<span class="sr-only">Go to last page</span>
 							<CaretDoubleRight class="h-4 w-4" />
 						</Button>

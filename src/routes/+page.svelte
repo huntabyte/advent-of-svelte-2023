@@ -13,6 +13,10 @@
 		{
 			day: 2,
 			title: 'Merry Munch-o-Meter'
+		},
+		{
+			day: 3,
+			title: 'Jingle Bell Balancer'
 		}
 	];
 </script>

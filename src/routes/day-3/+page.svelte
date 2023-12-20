@@ -25,7 +25,7 @@
 			{#if currentLoad + present.weight <= MAX_LOAD}
 				<Button
 					variant="ghost"
-					onclick={() => sleighPresents.push(backlogPresents.splice(i, 1)[0])}
+					onclick={() => sleighPresents.push(backlogPresents.splice(i, 1)[0]!)}
 				>
 					{present.name} - {present.weight}
 				</Button>
@@ -34,7 +34,7 @@
 	</div>
 	<div class="grid grid-cols-3 border border-border rounded-md min-w-1/2 w-full p-4">
 		{#each sleighPresents as present, i (`${present.name}-${present.weight}`)}
-			<Button variant="ghost" onclick={() => backlogPresents.push(sleighPresents.splice(i, 1)[0])}>
+			<Button variant="ghost" onclick={() => backlogPresents.push(sleighPresents.splice(i, 1)[0]!)}>
 				{present.name} - {present.weight}
 			</Button>
 		{/each}

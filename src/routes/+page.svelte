@@ -29,6 +29,10 @@
 		{
 			day: 6,
 			title: 'Mistletoe Metronome'
+		},
+		{
+			day: 7,
+			title: 'Morse Mischief'
 		}
 	];
 </script>

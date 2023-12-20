@@ -9,12 +9,16 @@
 		{
 			day: 1,
 			title: 'Naughty or Nice'
+		},
+		{
+			day: 2,
+			title: 'Merry Munch-o-Meter'
 		}
 	];
 </script>
 
 <div class="container mx-auto w-full py-16">
-	<div class="grid grid-cols-3 w-full">
+	<div class="grid grid-cols-4 w-full gap-4">
 		{#each days as { day, title }}
 			<a href="/day-{day}" class="group">
 				<Card.Root class="group-hover:bg-muted/40 transition-colors ease-linear">

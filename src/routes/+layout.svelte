@@ -6,7 +6,7 @@
 
 <SiteHeader />
 <div class="relative flex min-h-[calc(100vh-57px)] flex-col" id="page">
-	<div class="flex-1 h-full self-stretch container">
+	<div class="flex-1 h-full self-stretch container py-16">
 		{@render children()}
 	</div>
 	<div class="w-full text-center py-6 container">

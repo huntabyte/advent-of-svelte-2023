@@ -20,7 +20,15 @@
 		},
 		{
 			day: 4,
-			title: 'Heart Rate Monitor'
+			title: 'Heart of Christmas'
+		},
+		{
+			day: 5,
+			title: 'Present Progress'
+		},
+		{
+			day: 6,
+			title: 'Mistletoe Metronome'
 		}
 	];
 </script>

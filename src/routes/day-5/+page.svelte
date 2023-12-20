@@ -31,8 +31,6 @@
 			}
 		});
 
-		console.log(elfData);
-
 		return elfData;
 	}
 </script>

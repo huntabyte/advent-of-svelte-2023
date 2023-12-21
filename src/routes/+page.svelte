@@ -45,6 +45,10 @@
 		{
 			day: 10,
 			title: "Pop-up! Spreading the holiday cheer"
+		},
+		{
+			day: 11,
+			title: "Tinsel Transformers"
 		}
 	];
 </script>

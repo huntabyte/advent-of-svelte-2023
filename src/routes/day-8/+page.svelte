@@ -2,7 +2,7 @@
 	import { Button } from "$lib/components/ui/button";
 	import { Game } from "./states.svelte";
 
-	const game = new Game(6);
+	const game = new Game(12);
 </script>
 
 <div class="py-6">

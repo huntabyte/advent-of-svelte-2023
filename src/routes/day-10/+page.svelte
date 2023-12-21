@@ -5,14 +5,13 @@
 	let open = $state(false);
 
 	$effect(() => {
-		sleep(3000).then(() => {
+		sleep(1500).then(() => {
 			open = true;
 		});
 	});
 </script>
 
-<Dialog.Root portal={null} bind:open>
-	<Dialog.Trigger>Open sesame</Dialog.Trigger>
+<Dialog.Root bind:open>
 	<Dialog.Content>
 		<Dialog.Header>
 			<Dialog.Title>Merry Christmas & Happy Holidays! 🎄 🎁</Dialog.Title>

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import "../app.pcss";
+	import { dev } from "$app/environment";
 	let { children } = $props();
-	import SiteHeader from "$lib/components/site-header.svelte";
+	import { SiteHeader, TWIndicator } from "$lib/components";
 </script>
 
 <SiteHeader />
@@ -17,3 +18,7 @@
 		>
 	</div>
 </div>
+
+{#if dev}
+	<TWIndicator />
+{/if}

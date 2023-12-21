@@ -37,12 +37,16 @@
 		{
 			day: 8,
 			title: "Santa's Mysterious Deck of Doubles"
+		},
+		{
+			day: 9,
+			title: "Santa's Final Countdown"
 		}
 	];
 </script>
 
-<div class="container mx-auto w-full py-16">
-	<div class="grid grid-cols-4 w-full gap-4">
+<div class="container mx-auto py-16">
+	<div class="grid grid-cols-4 gap-4">
 		{#each days as { day, title }}
 			<a href="/day-{day}" class="group">
 				<Card.Root class="group-hover:bg-muted/40 transition-colors ease-linear">

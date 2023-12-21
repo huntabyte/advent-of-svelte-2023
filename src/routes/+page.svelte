@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card';
+	import * as Card from "$lib/components/ui/card";
 	type Day = {
 		day: number;
 		title: string;
@@ -8,31 +8,35 @@
 	const days: Day[] = [
 		{
 			day: 1,
-			title: 'Naughty or Nice'
+			title: "Naughty or Nice"
 		},
 		{
 			day: 2,
-			title: 'Merry Munch-o-Meter'
+			title: "Merry Munch-o-Meter"
 		},
 		{
 			day: 3,
-			title: 'Jingle Bell Balancer'
+			title: "Jingle Bell Balancer"
 		},
 		{
 			day: 4,
-			title: 'Heart of Christmas'
+			title: "Heart of Christmas"
 		},
 		{
 			day: 5,
-			title: 'Present Progress'
+			title: "Present Progress"
 		},
 		{
 			day: 6,
-			title: 'Mistletoe Metronome'
+			title: "Mistletoe Metronome"
 		},
 		{
 			day: 7,
-			title: 'Morse Mischief'
+			title: "Morse Mischief"
+		},
+		{
+			day: 8,
+			title: "Santa's Mysterious Deck of Doubles"
 		}
 	];
 </script>

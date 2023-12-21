@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
+	import { Button } from "$lib/components/ui/button";
 
 	let beats = $state(0);
 	let started = $state(false);

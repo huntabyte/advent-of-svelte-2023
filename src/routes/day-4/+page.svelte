@@ -6,15 +6,15 @@
 
 	const modes = [
 		{
-			name: '5s',
+			name: "5s",
 			value: 5000
 		},
 		{
-			name: '10s',
+			name: "10s",
 			value: 10000
 		},
 		{
-			name: '15s',
+			name: "15s",
 			value: 15000
 		}
 	];
@@ -33,7 +33,7 @@
 
 	$effect(() => {
 		const interval = setInterval(async () => {
-			const res = await fetch('https://advent.sveltesociety.dev/data/2023/day-four.json');
+			const res = await fetch("https://advent.sveltesociety.dev/data/2023/day-four.json");
 			const data = await res.json();
 
 			heartRateList.push({
@@ -47,7 +47,7 @@
 </script>
 
 <div>
-	<p>Current Heartrate: {currentHeartRate?.heartRate ?? '--'}</p>
+	<p>Current Heartrate: {currentHeartRate?.heartRate ?? "--"}</p>
 	<p>Averages</p>
 	<ul>
 		{#each averageHeartRates as { name, heartRate }}

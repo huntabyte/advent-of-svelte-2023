@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Present } from './+page.js';
-	import { Button } from '$lib/components/ui/button';
-	import { Progress } from '$lib/components/ui/progress';
+	import type { Present } from "./+page.js";
+	import { Button } from "$lib/components/ui/button";
+	import { Progress } from "$lib/components/ui/progress";
 	let { data } = $props();
 
 	let backlogPresents = $state([...data.presents]);

@@ -1,6 +1,6 @@
-import { Persisted } from '$lib/persisted.svelte';
-import { generateId } from '$lib/utils';
-import type { PersonData } from './types';
+import { Persisted } from "$lib/persisted.svelte";
+import { generateId } from "$lib/utils";
+import type { PersonData } from "./types";
 
 export class NaughtyOrNice {
 	personData = $state<PersonData>({});
@@ -11,7 +11,7 @@ export class NaughtyOrNice {
 	#totalPages = $derived(Math.ceil(this.#personArr.length / 10));
 
 	constructor(initialValue: PersonData) {
-		this.#persistedPersons = new Persisted('naughtyNiceList', initialValue);
+		this.#persistedPersons = new Persisted("naughtyNiceList", initialValue);
 		this.personData = this.#persistedPersons.value;
 		this.#page = 0;
 

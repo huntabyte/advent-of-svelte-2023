@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { Input } from '$lib/components/ui/input';
-	import { Button } from '$lib/components/ui/button';
-	import { morseMap } from './morseMap';
+	import { Input } from "$lib/components/ui/input";
+	import { Button } from "$lib/components/ui/button";
+	import { morseMap } from "./morseMap";
 
-	let inputVal = $state('Hello World');
+	let inputVal = $state("Hello World");
 	let morseCode: string[] = $derived(convertToMorse());
 
 	function convertToMorse() {
-		const inputArr = inputVal.toUpperCase().split('');
+		const inputArr = inputVal.toUpperCase().split("");
 		const morseArr: string[] = [];
 
 		inputArr.forEach((item) => {
@@ -51,17 +51,17 @@
 
 	async function playMorse() {
 		started = true;
-		for (const item of morseCode.join(' ')) {
+		for (const item of morseCode.join(" ")) {
 			if (stopped) {
 				started = false;
 				stopped = false;
 				break;
 			}
-			if (item === '.') {
+			if (item === ".") {
 				await beep(400);
-			} else if (item === '-') {
+			} else if (item === "-") {
 				await beep(800);
-			} else if (item === ' ') {
+			} else if (item === " ") {
 				await sleep(600);
 			}
 		}
@@ -69,6 +69,6 @@
 </script>
 
 <Input type="text" bind:value={inputVal} />
-{morseCode.join(' ')}
+{morseCode.join(" ")}
 <Button disabled={started} onclick={async () => await playMorse()}>Start</Button>
 <Button onclick={stop} disabled={!started}>Stop</Button>

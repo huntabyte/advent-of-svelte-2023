@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../app.pcss';
+	import "../app.pcss";
 	let { children } = $props();
-	import SiteHeader from '$lib/components/site-header.svelte';
+	import SiteHeader from "$lib/components/site-header.svelte";
 </script>
 
 <SiteHeader />

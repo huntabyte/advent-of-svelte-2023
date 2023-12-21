@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Task } from './+page.js';
-	import * as Card from '$lib/components/ui/card';
+	import type { Task } from "./+page.js";
+	import * as Card from "$lib/components/ui/card";
 
 	type ElfData = {
 		tasks: Task[];

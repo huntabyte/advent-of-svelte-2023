@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Cookie } from 'phosphor-svelte';
-	import { Button } from '$lib/components/ui/button';
-	import { Progress } from '$lib/components/ui/progress';
+	import { Cookie } from "phosphor-svelte";
+	import { Button } from "$lib/components/ui/button";
+	import { Progress } from "$lib/components/ui/progress";
 
 	let count = $state(0);
 	const mood = $derived(getSantasMood());

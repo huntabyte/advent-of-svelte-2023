@@ -1,19 +1,19 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
-	import { Game } from './states.svelte';
+	import { Button } from "$lib/components/ui/button";
+	import { Game } from "./states.svelte";
 
 	const game = new Game(6);
 </script>
 
 <div class="py-6">
 	<p>Match the days to win!</p>
-	<p>Highscore: {game.highScore ?? 'N/A'}</p>
+	<p>Highscore: {game.highScore ?? "N/A"}</p>
 	<p>Current time: {game.time}</p>
 
 	<Button onclick={() => game.startGame()}>Start Game</Button>
 </div>
 
-{#if game.status === 'ready'}
+{#if game.status === "ready"}
 	<ul>
 		{#each game.scores as score}
 			<li>{score}</li>
@@ -21,7 +21,7 @@
 	</ul>
 {/if}
 
-{#if game.status === 'in progress'}
+{#if game.status === "in progress"}
 	<div class="grid grid-cols-8 gap-4">
 		{#each game.cards as day, i (`${day}-${i}`)}
 			<button class="h-auto w-full relative" onclick={() => game.checkMatch(i)}>

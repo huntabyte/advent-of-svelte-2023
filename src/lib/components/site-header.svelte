@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-	import { buttonVariants } from './ui/button';
-	import GitHubIcon from './icons/github.svelte';
-	import XIcon from './icons/x.svelte';
+	import { cn } from "$lib/utils";
+	import { buttonVariants } from "./ui/button";
+	import GitHubIcon from "./icons/github.svelte";
+	import XIcon from "./icons/x.svelte";
 </script>
 
 <header
@@ -22,10 +22,10 @@
 					<div
 						class={cn(
 							buttonVariants({
-								size: 'sm',
-								variant: 'ghost'
+								size: "sm",
+								variant: "ghost"
 							}),
-							'w-9 px-0'
+							"w-9 px-0"
 						)}
 					>
 						<GitHubIcon class="h-4 w-4" />
@@ -36,10 +36,10 @@
 					<div
 						class={cn(
 							buttonVariants({
-								size: 'sm',
-								variant: 'ghost'
+								size: "sm",
+								variant: "ghost"
 							}),
-							'w-9 px-0'
+							"w-9 px-0"
 						)}
 					>
 						<XIcon class="h-3 w-3 fill-current" />

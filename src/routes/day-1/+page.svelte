@@ -1,22 +1,22 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card';
-	import * as Table from '$lib/components/ui/table';
-	import { Badge } from '$lib/components/ui/badge';
-	import { Button } from '$lib/components/ui/button';
-	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
-	import { CaretLeft, CaretDoubleLeft, CaretRight, CaretDoubleRight } from 'phosphor-svelte';
-	import { NaughtyOrNice } from './state.svelte.js';
-	import { cn } from '$lib/utils.js';
+	import * as Card from "$lib/components/ui/card";
+	import * as Table from "$lib/components/ui/table";
+	import { Badge } from "$lib/components/ui/badge";
+	import { Button } from "$lib/components/ui/button";
+	import { Input } from "$lib/components/ui/input";
+	import { Label } from "$lib/components/ui/label";
+	import { CaretLeft, CaretDoubleLeft, CaretRight, CaretDoubleRight } from "phosphor-svelte";
+	import { NaughtyOrNice } from "./state.svelte.js";
+	import { cn } from "$lib/utils.js";
 	let { data } = $props();
 
 	const list = new NaughtyOrNice(data.naughtyNiceList);
 
-	let name = $state('');
+	let name = $state("");
 
 	function addChild() {
 		list.addPerson(name);
-		name = '';
+		name = "";
 	}
 
 	function isNaughty(tally: number) {
@@ -47,12 +47,12 @@
 							<Table.Cell class="font-medium">
 								<span>{child.name}</span>
 							</Table.Cell>
-							<Table.Cell class={cn(naughty ? 'text-red-500' : 'text-green-500')}>
+							<Table.Cell class={cn(naughty ? "text-red-500" : "text-green-500")}>
 								<span>{child.tally}</span>
 							</Table.Cell>
 							<Table.Cell>
-								<Badge variant={naughty ? 'destructive' : 'success'}>
-									{naughty ? 'Naughty' : 'Nice'}
+								<Badge variant={naughty ? "destructive" : "success"}>
+									{naughty ? "Naughty" : "Nice"}
 								</Badge>
 							</Table.Cell>
 							<Table.Cell>

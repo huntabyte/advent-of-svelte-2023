@@ -5,7 +5,7 @@ export class Game {
 	selected: number[] = $state([]);
 	matches: number[] = $state([]);
 	gameComplete: boolean = $derived(this.matches.length === this.cards.length / 2);
-	status: 'ready' | 'in progress' | 'ended' = $state('ready');
+	status: "ready" | "in progress" | "ended" = $state("ready");
 	time: number = $state(0);
 
 	constructor(numCards: number) {
@@ -13,7 +13,7 @@ export class Game {
 
 		$effect(() => {
 			if (this.gameComplete) {
-				this.status = 'ended';
+				this.status = "ended";
 				this.scores.push(this.time);
 				this.resetGame();
 			}
@@ -21,9 +21,9 @@ export class Game {
 
 		$effect(() => {
 			let interval: number;
-			if (this.status === 'in progress') {
+			if (this.status === "in progress") {
 				interval = window.setInterval(() => {
-					if (this.status === 'ended') {
+					if (this.status === "ended") {
 						window.clearInterval(interval);
 						return;
 					}
@@ -37,7 +37,7 @@ export class Game {
 	}
 
 	startGame = () => {
-		this.status = 'in progress';
+		this.status = "in progress";
 	};
 
 	checkMatch = (idx: number) => {
@@ -63,7 +63,7 @@ export class Game {
 		this.selected = [];
 		this.matches = [];
 		this.time = 0;
-		this.status = 'ready';
+		this.status = "ready";
 	};
 }
 
@@ -82,7 +82,7 @@ function shuffleArr(arr: number[]) {
 }
 
 function createArray(numCards: number) {
-	if (numCards > 24) throw new Error('Too many cards');
+	if (numCards > 24) throw new Error("Too many cards");
 	const init = Array.from({ length: numCards }, (_, i) => i + 1);
 	const merged = init.concat(init);
 	return shuffleArr(merged);

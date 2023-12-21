@@ -8,7 +8,7 @@ export type Serializer<T> = {
 	stringify(value: T): string;
 };
 
-export type StorageType = 'local' | 'session';
+export type StorageType = "local" | "session";
 
 export type Options<T> = {
 	serializer?: Serializer<T>;
@@ -29,16 +29,16 @@ const states: States = {
 
 export class Persisted<T> {
 	#serializer: Serializer<T> = JSON;
-	#storageType: StorageType = 'local';
+	#storageType: StorageType = "local";
 	#key: string;
-	#isBrowser: boolean = typeof window !== 'undefined' && typeof document !== 'undefined';
+	#isBrowser: boolean = typeof window !== "undefined" && typeof document !== "undefined";
 	#storage = this.#isBrowser ? getStorage(this.#storageType) : null;
 	#value = $state<T | null>() as T | null;
 
 	constructor(key: string, initialValue: T, options?: Options<T>) {
 		this.#key = key;
 		this.#value = initialValue;
-		this.#storageType = options?.storage ?? 'local';
+		this.#storageType = options?.storage ?? "local";
 		this.#serializer = options?.serializer ?? JSON;
 
 		const store = states[this.#storageType][key];
@@ -54,11 +54,11 @@ export class Persisted<T> {
 		}
 
 		$effect(() => {
-			if (this.#isBrowser && this.#storageType == 'local') {
-				window.addEventListener('storage', this.#handleStorage);
+			if (this.#isBrowser && this.#storageType == "local") {
+				window.addEventListener("storage", this.#handleStorage);
 			}
 
-			return () => window.removeEventListener('storage', this.#handleStorage);
+			return () => window.removeEventListener("storage", this.#handleStorage);
 		});
 	}
 
@@ -86,5 +86,5 @@ export class Persisted<T> {
 }
 
 function getStorage(type: StorageType) {
-	return type === 'local' ? localStorage : sessionStorage;
+	return type === "local" ? localStorage : sessionStorage;
 }

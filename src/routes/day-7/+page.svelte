@@ -29,8 +29,11 @@
 	let stopped = false;
 	let started = $state(false);
 
-	async function beep(ms: number) {
+	$effect(() => {
 		context = new AudioContext();
+	});
+
+	async function beep(ms: number) {
 		gain = context.createGain();
 		oscillator = context.createOscillator();
 		oscillator.connect(gain);
@@ -55,11 +58,11 @@
 				break;
 			}
 			if (item === '.') {
-				await beep(500);
+				await beep(400);
 			} else if (item === '-') {
-				await beep(1000);
+				await beep(800);
 			} else if (item === ' ') {
-				await sleep(1000);
+				await sleep(600);
 			}
 		}
 	}

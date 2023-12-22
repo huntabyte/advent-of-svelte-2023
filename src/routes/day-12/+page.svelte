@@ -5,11 +5,11 @@
 	import Sticker from "./sticker.svelte";
 	const frame = new Frame();
 
-	let bgColor = $state("#cdcdcd");
+	let bgColor = $state("#181818");
 </script>
 
 <div class="flex justify-between w-[1280px] mx-auto pb-4 items-center">
-	<div class="flex items-center">
+	<div class="flex items-center gap-8">
 		<div>
 			<span class="text-base font-medium">Add a sticker:</span>
 			<div class="flex items-center pt-2">
@@ -32,8 +32,10 @@
 			</div>
 		</div>
 		<div>
-			<Label>Change Background Color</Label>
-			<input type="color" class="w-12 h-12" bind:value={bgColor} />
+			<Label for="bgColor">Change Background Color</Label>
+			<div>
+				<input id="bgColor" type="color" class="w-12 h-12 text-base" bind:value={bgColor} />
+			</div>
 		</div>
 	</div>
 	<Button onclick={frame.exportImage}>Export</Button>

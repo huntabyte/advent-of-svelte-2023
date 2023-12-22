@@ -51,5 +51,9 @@ export const days: Day[] = [
 	{
 		day: 12,
 		title: "Greetings & Salutations"
+	},
+	{
+		day: 13,
+		title: "Jingle Bell Balancer 2.0"
 	}
 ];

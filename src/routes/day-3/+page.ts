@@ -5,7 +5,7 @@ export type Present = {
 	weight: number;
 };
 
-export const load: PageLoad = async () => {
+export const load: PageLoad = async ({ fetch }) => {
 	async function getPresents() {
 		const res = await fetch("https://advent.sveltesociety.dev/data/2023/day-three.json");
 		const data = await res.json();

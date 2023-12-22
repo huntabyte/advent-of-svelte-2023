@@ -9,7 +9,7 @@ export type Task = {
 	date: string;
 };
 
-export const load: PageLoad = async () => {
+export const load: PageLoad = async ({ fetch }) => {
 	const res = await fetch("https://advent.sveltesociety.dev/data/2023/day-five.json");
 	const data = (await res.json()) as Task[];
 	return {

@@ -61,3 +61,5 @@ export const days: Day[] = [
 		title: "Snowfall Symphony"
 	}
 ];
+
+export const dayNumbers = days.map((d) => d.day);

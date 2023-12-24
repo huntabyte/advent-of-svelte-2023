@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="flex gap-4 items-start">
+<div class="flex items-start gap-4">
 	<Card.Root class="w-full">
 		<Card.Header>
 			<Card.Title>Naughty or Nice</Card.Title>
@@ -56,11 +56,14 @@
 								</Badge>
 							</Table.Cell>
 							<Table.Cell>
-								<div class="flex items-center gap-4 w-full justify-end">
-									<Button variant="destructive" onclick={() => list.updateTally(child.id, -1)}
-										>-1</Button
+								<div class="flex w-full items-center justify-end gap-4">
+									<Button
+										variant="destructive"
+										size="sm"
+										onclick={() => list.updateTally(child.id, -1)}>-1</Button
 									>
-									<Button variant="success" onclick={() => list.updateTally(child.id, 1)}>+1</Button
+									<Button variant="success" size="sm" onclick={() => list.updateTally(child.id, 1)}
+										>+1</Button
 									>
 								</div>
 							</Table.Cell>
@@ -84,7 +87,7 @@
 					</Button>
 					<Button
 						variant="outline"
-						class="p-0 w-8 h-8"
+						class="h-8 w-8 p-0"
 						onclick={list.prevPage}
 						disabled={list.page === 1}
 					>
@@ -93,7 +96,7 @@
 					</Button>
 					<Button
 						variant="outline"
-						class="p-0 w-8 h-8"
+						class="h-8 w-8 p-0"
 						onclick={list.nextPage}
 						disabled={list.page === list.totalPages}
 					>
@@ -116,7 +119,7 @@
 	<Card.Root class="min-w-[380px]">
 		<Card.Header>
 			<Card.Title>Add new child</Card.Title>
-			<Card.Description>Keep track of who has been naughty and nice</Card.Description>
+			<Card.Description>Start keeping a tally of your child's deeds</Card.Description>
 		</Card.Header>
 		<Card.Content>
 			<form

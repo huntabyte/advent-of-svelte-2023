@@ -6,20 +6,25 @@
 </script>
 
 <header
-	class="supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur"
+	class="sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
 	<div class="container flex h-14 items-center">
 		<div class="flex">
 			<a
 				href="/"
-				class="mr-6 flex items-center justify-between w-full space-x-2 hover:text-primary/90 transition-colors ease-linear"
+				class="mr-6 flex w-full items-center justify-between space-x-2 transition-colors ease-linear hover:text-primary/90"
 			>
-				<span class="font-bold sm:inline-block text-[15px] lg:text-base">
-					Advent of Svelte 2023
-				</span>
+				<div>
+					<img src="/logo.png" alt="advent of svelte logo" class="h-10 w-full object-contain" />
+				</div>
+				<div>
+					<span class="text-[15px] font-semibold sm:inline-block lg:text-base">
+						Advent of Svelte
+					</span>
+				</div>
 			</a>
 		</div>
-		<div class="flex flex-1 items-center space-x-2 sm:space-x-4 justify-end">
+		<div class="flex flex-1 items-center justify-end space-x-2 sm:space-x-4">
 			<nav class="flex items-center">
 				<a href="https://github.com/huntabyte/advent-of-svelte-2023" target="_blank">
 					<div

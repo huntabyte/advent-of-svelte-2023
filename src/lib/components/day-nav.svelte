@@ -26,9 +26,14 @@
 			<CaretLeft class="size-4" />
 		</Button>
 	{:else}
-		<Button size="icon" variant="outline" href="/day/{prevDay}">
-			<CaretLeft class="size-4" />
-		</Button>
+		<Tooltip.Root>
+			<Tooltip.Trigger asChild let:builder>
+				<Button builders={[builder]} size="icon" variant="outline" href="/day/{prevDay}">
+					<CaretLeft class="size-4" />
+				</Button>
+			</Tooltip.Trigger>
+			<Tooltip.Content align="start">Previous day</Tooltip.Content>
+		</Tooltip.Root>
 	{/if}
 
 	<h2 class="text-3xl font-medium tracking-tight">

@@ -18,8 +18,12 @@
 </script>
 
 <div class="mx-auto flex max-w-screen-sm flex-col gap-2 pb-4">
-	<span class="font-medium">Current Load: {currentLoad}</span>
+	<div class="flex items-center justify-between">
+		<p class="font-medium">Sleigh Load</p>
+		<p>{Math.floor((currentLoad / 100) * 100)}%</p>
+	</div>
 	<Progress max={MAX_LOAD} value={currentLoad} />
+	<span class="text-sm text-muted-foreground">Santa's sleigh can only support 100kg</span>
 </div>
 <div class="flex w-full items-start gap-4">
 	<Card.Root class="min-w-1/2 w-full">

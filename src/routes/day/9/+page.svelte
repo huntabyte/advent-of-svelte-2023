@@ -1,6 +1,9 @@
 <script lang="ts">
 	import * as Card from "$lib/components/ui/card";
-	const christmas = new Date("December 25, 2023 00:00:00");
+
+	const currentYear = getCurrentYear();
+
+	const christmas = new Date(`December 25, ${currentYear} 00:00:00`);
 	let today = $state(new Date());
 
 	const diff = $derived(christmas.getTime() - today.getTime());
@@ -29,17 +32,34 @@
 			window.clearInterval(interval);
 		};
 	});
+
+	/**
+	 * Check if it's already past Christmas for this year,
+	 * and if so, use next year for the countdown instead.
+	 */
+	function getCurrentYear() {
+		const date = new Date();
+		const currentYear = date.getFullYear();
+		const month = date.getMonth();
+		const day = date.getDate();
+
+		if (month === 11 && day > 25) {
+			return currentYear + 1;
+		}
+
+		return currentYear;
+	}
 </script>
 
-<div>
-	<h1 class="w-full text-center text-7xl mb-8">Countdown to Christmas 🎄</h1>
+<div class="mx-auto max-w-screen-md">
+	<h1 class="mb-8 w-full text-center text-5xl font-semibold">Countdown to Christmas 🎄</h1>
 	<div class="grid grid-cols-5 gap-4">
 		{#each Object.entries(times) as [key, value]}
-			<Card.Root class="p-6">
-				<Card.Content class="flex flex-col items-center p-0 gap-2">
+			<Card.Root class="border-2 p-6">
+				<Card.Content class="flex flex-col items-center gap-2 p-0">
 					{@const k = value === 1 ? key.substring(0, key.length - 1) : key}
-					<p class="text-6xl">{value}</p>
-					<p class="text-3xl capitalize">{k}</p>
+					<p class="text-4xl">{value}</p>
+					<p class="text-2xl capitalize">{k}</p>
 				</Card.Content>
 			</Card.Root>
 		{/each}

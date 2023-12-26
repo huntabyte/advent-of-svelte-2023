@@ -1,8 +1,7 @@
 <script lang="ts">
-	type HeartRate = {
-		heartRate: number;
-		timestamp: number;
-	};
+	import type { HeartRate } from "./+page";
+
+	let { data } = $props();
 
 	const modes = [
 		{
@@ -19,7 +18,7 @@
 		}
 	];
 
-	let heartRateList = $state<HeartRate[]>([]);
+	let heartRateList = $state<HeartRate[]>([...data.heartRateList]);
 	const currentHeartRate = $derived(heartRateList[heartRateList.length - 1]);
 	const averageHeartRates = $derived(
 		modes.map((mode) => ({ name: mode.name, heartRate: getAverageHeartRate(mode.value) }))
@@ -28,7 +27,7 @@
 	function getAverageHeartRate(ms: number) {
 		const lastFiveSec = heartRateList.filter((item) => item.timestamp > Date.now() - ms);
 		const sum = lastFiveSec.reduce((acc, item) => acc + item.heartRate, 0);
-		return sum / lastFiveSec.length;
+		return (sum / lastFiveSec.length).toFixed(2);
 	}
 
 	$effect(() => {

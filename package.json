@@ -37,6 +37,7 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
 		"vite": "^5.0.10",
+		"vite-plugin-tailwind-purgecss": "^0.2.0",
 		"vitest": "^1.1.0"
 	},
 	"type": "module",
@@ -45,6 +46,7 @@
 		"bits-ui": "^0.11.8",
 		"clsx": "^2.0.0",
 		"cmdk-sv": "^0.0.12",
+		"d3-scale": "^4.0.2",
 		"formsnap": "^0.4.1",
 		"html2canvas": "^1.4.1",
 		"lucide-svelte": "^0.294.0",

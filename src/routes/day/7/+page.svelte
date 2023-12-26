@@ -1,6 +1,9 @@
 <script lang="ts">
-	import { Input } from "$lib/components/ui/input";
+	import * as Card from "$lib/components/ui/card";
+	import { Textarea } from "$lib/components/ui/textarea";
 	import { Button } from "$lib/components/ui/button";
+	import { Label } from "$lib/components/ui/label";
+	import { Play, Stop } from "phosphor-svelte";
 	import { morseMap } from "./morseMap";
 
 	let inputVal = $state("Hello World");
@@ -68,7 +71,31 @@
 	}
 </script>
 
-<Input type="text" bind:value={inputVal} />
-{morseCode.join(" ")}
-<Button disabled={started} onclick={async () => await playMorse()}>Start</Button>
-<Button onclick={stop} disabled={!started}>Stop</Button>
+<div class="mx-auto max-w-screen-sm">
+	<Card.Root>
+		<Card.Header>
+			<Card.Title>Morse Code Generation</Card.Title>
+			<Card.Description>Convert a message of your choice to morse code</Card.Description>
+		</Card.Header>
+		<Card.Content>
+			<div class="flex flex-col gap-2 pb-4">
+				<Label for="message">Enter your message</Label>
+				<Textarea id="message" bind:value={inputVal} />
+			</div>
+			<p class="text-sm font-medium">Generated Morse Code:</p>
+			<p class="min-h-6">
+				{morseCode.join(" ")}
+			</p>
+			<div class="flex items-center gap-2 pt-4">
+				<Button disabled={started} onclick={async () => await playMorse()} variant="success">
+					<Play class="mr-2 h-4 w-4" />
+					Play
+				</Button>
+				<Button onclick={stop} disabled={!started} variant="destructive">
+					<Stop class="mr-2 h-4 w-4" />
+					Stop
+				</Button>
+			</div>
+		</Card.Content>
+	</Card.Root>
+</div>

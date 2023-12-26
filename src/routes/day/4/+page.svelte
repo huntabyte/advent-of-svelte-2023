@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { HeartRate } from "./+page";
+	import HeartRateChart from "./heart-rate-chart.svelte";
 
 	let { data } = $props();
 
@@ -34,11 +35,7 @@
 		const interval = setInterval(async () => {
 			const res = await fetch("https://advent.sveltesociety.dev/data/2023/day-four.json");
 			const data = await res.json();
-
-			heartRateList.push({
-				heartRate: data.heartRate,
-				timestamp: Date.now()
-			});
+			heartRateList = [...heartRateList, { heartRate: data.heartRate, timestamp: Date.now() }];
 		}, 1000);
 
 		return () => clearInterval(interval);
@@ -56,3 +53,5 @@
 		{/each}
 	</ul>
 </div>
+
+<HeartRateChart data={heartRateList} />
